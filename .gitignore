@@ -1,0 +1,29 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Django 관련
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+
+# Django 마이그레이션(필요시 포함)
+# migrations/
+
+# 환경 변수 파일 (보안을 위해 Git에 포함하지 않음)
+.env
+
+# Media 파일 (필요에 따라 관리)
+media/
+
+# 기타 OS 파일
+.DS_Store
+Thumbs.db

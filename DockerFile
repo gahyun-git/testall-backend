@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # 시스템 의존성 설치 (예: gcc, libpq-dev 등 PostgreSQL 관련 빌드 도구)
-RUN apt-get update && apt-get install -y gcc libpq-dev && apt-get clean
+RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
 
 # requirements.txt 복사 후 의존성 설치
 COPY requirements.txt /app/
@@ -23,3 +23,4 @@ EXPOSE 8000
 
 # 개발용 Django 서버 실행 (실제 배포 시 Gunicorn 등으로 변경할 수 있음)
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

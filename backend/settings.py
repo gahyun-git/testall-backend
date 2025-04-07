@@ -21,12 +21,6 @@ environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 추가: 도커 여부에 따른 DB_HOST 처리
-# 로컬에서 DOCKER 환경변수를 따로 설정하지 않았다면 default로 False 처리
-if os.environ.get("DOCKER", "False") == "True":
-    DB_HOST = "db"
-else:
-    DB_HOST = "localhost"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -55,7 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # Local apps
-    'fun_quizzes',
+    'fun_quizzes'
 ]
 
 MIDDLEWARE = [
@@ -92,6 +86,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+if os.environ.get("DOCKER", "False") == "True":
+    DB_HOST = "db"
+else:
+    DB_HOST = "localhost"
 
 DATABASES = {
     'default': {
@@ -164,7 +163,7 @@ CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        # 개발시 사용
+        # 개발시에는 AllowAny 사용
         'rest_framework.permissions.AllowAny',
         # 'rest_framework.permissions.IsAuthenticated',
     ],
@@ -175,4 +174,3 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }
-

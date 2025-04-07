@@ -1,6 +1,6 @@
 from django.db import models
 
-from fun_quizzes.models.test import Test
+from TestAll.backend.fun_quizzes.models.test import Test
 from .base import TimeStampModel
 
 class TestResult(TimeStampModel):

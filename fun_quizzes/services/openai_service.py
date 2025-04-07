@@ -1,12 +1,14 @@
 import json
 import re
 from pathlib import Path
-from openai import OpenAI
+import os
+import openai
 from datetime import datetime
 from django.conf import settings
 
 # OpenAI 클라이언트 초기화
-client = OpenAI(api_key=settings.env('OPENAI_API_KEY'))
+openai.api_key = os.getenv("OPENAI_API_KEY")
+client = openai
 
 class OpenAIService:
     """

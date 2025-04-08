@@ -1,6 +1,6 @@
 from django.db import models
 
-from TestAll.backend.fun_quizzes.models.category import Category
+from ..models.category import Category
 from .base import TimeStampModel
 
 class Test(TimeStampModel):

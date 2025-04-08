@@ -1,3 +1,3 @@
-from .openai_service import OpenAIService
+from .openai.openai_facade import OpenAIFacade as OpenAIService
 
 __all__ = ['OpenAIService']

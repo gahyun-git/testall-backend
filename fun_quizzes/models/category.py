@@ -1,7 +1,7 @@
 from django.db import models
-from .base import TimeStampedModel
+from .base import TimeStampModel
 
-class Category(TimeStampedModel):
+class Category(TimeStampModel):
     """테스트 카테고리 모델"""
     name = models.CharField(max_length=50, verbose_name='카테고리명')
     slug = models.SlugField(unique=True, verbose_name='URL용 이름')

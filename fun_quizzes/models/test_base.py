@@ -1,8 +1,8 @@
 from django.db import models
-from .base import TimeStampedModel
+from .base import TimeStampModel
 from .category import Category
 
-class BaseTest(TimeStampedModel):
+class AbstractTest(TimeStampModel):
     """모든 테스트 유형의 기본이 되는 추상 모델"""
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='카테고리')
     title = models.CharField(max_length=100, verbose_name='테스트 제목')

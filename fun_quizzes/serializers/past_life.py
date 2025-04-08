@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
 from ..models.category import Category
-from ..models.past_life import PastLifeTest, PastLifeResult
+from ..models.past_life_test import PastLifeTest
+from ..models.past_life_result import PastLifeResult
 from .category import CategorySerializer
 
 class PastLifeTestSerializer(serializers.ModelSerializer):
